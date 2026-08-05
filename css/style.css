@@ -1,0 +1,338 @@
+/* ==========================================================================
+   오산헤리티지자이 — 공식 홈페이지 구조를 뼈대로 재구성한 사이트
+   참고: https://www.xi.co.kr/osXI (실제 카테고리 구성/순서/색감/폰트 반영)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+:root{
+  --navy:#122d43;        /* Xi DEEP Blue */
+  --gray:#d8d4cd;         /* Xi Gray */
+  --skyblue:#4bbae6;      /* Xi Sky Blue */
+  --heritage:#0085ad;     /* Xi Heritage Blue */
+  --dark:#292929;         /* header / gnb 배경 */
+  --gold:#d9b26a;         /* 분양문의 전화번호 강조 */
+  --ink:#333333;
+  --line:#e5e5e5;
+  --bg-soft:#f7f7f5;
+  --maxw:1200px;
+  --font:'Noto Sans KR', -apple-system, sans-serif;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--ink);
+  background:#fff;
+  line-height:1.6;
+  font-weight:400;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4,p{margin:0;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+/* ---------- Header ---------- */
+.site-header{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--line);}
+.gnb-top{background:var(--dark);color:#fff;}
+.gnb-top .wrap{display:flex;align-items:center;height:88px;gap:40px;}
+.brand{font-size:23px;font-weight:700;letter-spacing:.5px;white-space:nowrap;}
+.brand small{display:block;font-size:11px;font-weight:300;letter-spacing:3px;opacity:.7;margin-top:2px;}
+.gnb-main{display:flex;gap:38px;flex:1;height:100%;justify-content:center;}
+.gnb-main > li{position:relative;height:100%;}
+.gnb-main > li > a{font-size:16px;font-weight:500;height:100%;display:flex;align-items:center;position:relative;}
+.gnb-main > li > a:hover,.gnb-main > li.active > a{color:var(--skyblue);}
+.gnb-main > li.active > a::after,.gnb-main > li:hover > a::after{content:'';position:absolute;left:15%;right:15%;bottom:26px;height:2px;background:var(--skyblue);}
+.gnb-cta{display:flex;align-items:center;gap:24px;font-size:13px;white-space:nowrap;}
+.phone-badge{display:inline-flex;flex-direction:column;align-items:flex-end;color:var(--gold);font-weight:700;letter-spacing:.5px;}
+.phone-badge .pb-row{display:flex;align-items:center;gap:8px;font-size:28px;}
+.phone-badge .ic-phone{width:0.72em;height:0.72em;fill:#fff;flex-shrink:0;}
+.phone-badge .pb-tap{display:none;}
+.phone-badge .pb-badge{display:none;}
+.gnb-cta .reg{border:1px solid rgba(255,255,255,.4);padding:9px 16px;border-radius:2px;font-size:13px;}
+
+/* 드롭다운 서브카테고리 (호버 시 해당 카테고리 바로 밑, 중앙정렬로 펼쳐짐) */
+.gnb-dropdown{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%);
+  min-width:190px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-top:2px solid var(--heritage);
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+  padding:8px 0;
+  z-index:300;
+}
+.gnb-main > li:hover .gnb-dropdown{display:block;}
+.gnb-dropdown a{display:block;padding:11px 22px;font-size:13.5px;color:#666;text-align:center;white-space:nowrap;}
+.gnb-dropdown a:hover{background:var(--heritage);color:#fff;}
+
+/* ---------- Hero (홈) ---------- */
+.hero{position:relative;height:calc(100vh - 88px);min-height:600px;max-height:820px;overflow:hidden;background:var(--navy);}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;}
+.hero-slide.active{opacity:1;}
+
+/* 우측 퀵메뉴 배너 - 모든 페이지에 떠 있는 고정형 패널 (js에서 주입) */
+.hero-banner{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:210;width:150px;display:flex;flex-direction:column;box-shadow:-3px 0 14px rgba(0,0,0,.18);}
+.hero-banner a{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:15px;font-weight:700;line-height:1.4;padding:10px;min-height:84px;transition:opacity .2s;}
+.hero-banner a:hover{opacity:.88;}
+.hero-banner a .ic{display:block;font-size:28px;margin-bottom:10px;}
+.hero-banner .interest{background:var(--navy);color:#fff;}
+.hero-banner .kakao{background:#fae100;color:#181600;}
+.hero-banner .sms{background:var(--skyblue);color:#fff;}
+.hero-banner .video{background:var(--heritage);color:#fff;}
+
+/* 하단 점 네비게이션 */
+.hero-dots{position:absolute;left:0;right:150px;bottom:32px;z-index:20;text-align:center;}
+.hero-dots button{display:inline-block;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.5);margin:0 5px;border:none;padding:0;cursor:pointer;transition:background .2s;}
+.hero-dots button.active{background:#fff;}
+
+@media(max-width:900px){
+  .hero-banner{display:none;}
+  .hero-dots{left:0;right:0;}
+}
+
+/* ---------- Page title ---------- */
+.page-title{padding:56px 0 34px;text-align:center;}
+.page-title h2{font-size:32px;font-weight:700;color:var(--navy);}
+.page-title p{margin-top:10px;color:#888;font-size:14px;}
+.section-title{font-size:22px;font-weight:700;color:var(--navy);margin:0 0 18px;padding-left:14px;border-left:4px solid var(--heritage);}
+
+.content{padding-bottom:90px;}
+.subpanel{display:none;}
+.subpanel.active{display:block;}
+.block{padding:44px 0;}
+.block + .block{border-top:1px solid var(--line);}
+
+/* ---------- Cards / grid ---------- */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.card{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;}
+.card .img{aspect-ratio:16/10;background:linear-gradient(135deg,var(--navy),var(--heritage));display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:12px;overflow:hidden;}
+.card .img img{width:100%;height:100%;object-fit:cover;}
+.card .body{padding:22px;}
+.card .icon{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;margin:-44px auto 14px;position:relative;font-size:18px;border:4px solid #fff;}
+.card h4{font-size:17px;font-weight:700;color:var(--navy);text-align:center;margin-bottom:8px;}
+.card p{font-size:13px;color:#777;text-align:center;}
+
+/* premium detail (assets 이미지 갤러리) */
+.premium-tabs{display:flex;gap:10px;margin-bottom:28px;justify-content:center;}
+.premium-tabs button{padding:10px 26px;border:1px solid var(--line);background:#fff;border-radius:20px;font-family:var(--font);font-size:14px;cursor:pointer;color:#666;}
+.premium-tabs button.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+.premium-gallery{display:none;flex-direction:column;gap:28px;}
+.premium-gallery.active{display:flex;}
+.premium-gallery figure{margin:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.04);}
+.premium-gallery img{width:100%;}
+.premium-gallery figcaption{padding:14px 20px;font-size:13px;color:#888;background:var(--bg-soft);border-top:1px solid var(--line);}
+
+/* table */
+table{width:100%;border-collapse:collapse;font-size:14px;}
+table th,table td{border:1px solid var(--line);padding:12px 14px;text-align:left;}
+table th{background:var(--bg-soft);color:var(--navy);font-weight:700;width:160px;}
+
+/* 사업개요 표 - 구분(좌측) 칸을 줄이고 내용(우측) 칸을 넓게 */
+.biz-table th{width:100px;}
+
+/* type tabs (평형정보 등) */
+.type-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+.type-tabs button{padding:9px 18px;border:1px solid var(--line);background:#fff;font-family:var(--font);font-size:13px;cursor:pointer;color:#666;border-radius:2px;}
+.type-tabs button.active{background:var(--heritage);border-color:var(--heritage);color:#fff;}
+.type-panel{display:none;}
+.type-panel.active{display:block;}
+
+/* news list */
+.news-list{border-top:2px solid var(--navy);}
+.news-list li{display:flex;gap:18px;padding:16px 6px;border-bottom:1px solid var(--line);font-size:14px;align-items:baseline;}
+.news-list li .no{color:#aaa;width:28px;flex:none;}
+.news-list li .tt{flex:1;color:var(--ink);}
+.news-list li .press{width:90px;flex:none;color:#888;font-size:13px;}
+.news-list li .date{width:90px;flex:none;color:#aaa;font-size:13px;text-align:right;}
+.news-list li:hover .tt{color:var(--heritage);}
+
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;}
+.cal .dow{text-align:center;font-weight:700;font-size:13px;color:#888;padding-bottom:8px;}
+.cal .day{border:1px solid var(--line);min-height:78px;padding:8px;font-size:12px;border-radius:4px;color:#aaa;}
+.cal .day.on{color:var(--ink);}
+.cal .day .tag{margin-top:6px;font-size:11px;font-weight:700;color:#fff;padding:4px 6px;border-radius:2px;display:inline-block;}
+
+/* steps */
+.steps{display:flex;flex-direction:column;gap:16px;}
+.steps li{display:flex;gap:18px;align-items:flex-start;background:var(--bg-soft);border-radius:6px;padding:18px 20px;}
+.steps b.num{width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;flex:none;font-size:14px;}
+.steps .tx b{display:block;color:var(--navy);margin-bottom:2px;font-size:15px;}
+.steps .tx span{font-size:13px;color:#777;}
+
+/* notice text */
+.note{font-size:12px;color:#999;line-height:1.8;background:var(--bg-soft);padding:16px 18px;border-radius:4px;}
+
+/* footer */
+.site-footer{background:var(--dark);color:#bbb;font-size:12px;padding:30px 0;}
+.site-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.site-footer b{color:#fff;}
+.site-footer .links a{margin-right:12px;color:#999;}
+
+/* badge for new/candidate category */
+.badge-new{display:inline-block;background:var(--gold);color:var(--navy);font-size:11px;font-weight:700;padding:3px 8px;border-radius:10px;margin-left:8px;vertical-align:middle;}
+
+/* 오시는 길 */
+.directions-grid{display:flex;gap:44px;flex-wrap:wrap;align-items:stretch;}
+.directions-map{flex:1 1 420px;max-width:480px;}
+.directions-map img{width:100%;border-radius:6px;display:block;}
+.directions-info{flex:1 1 420px;min-width:300px;border-top:3px solid var(--heritage);padding-top:26px;}
+.directions-info h3{font-size:24px;font-weight:700;color:var(--navy);margin-bottom:22px;}
+.d-section{margin-bottom:24px;}
+.d-section h4{font-size:16px;font-weight:700;color:var(--heritage);margin-bottom:8px;}
+.d-section p{font-size:14px;color:#555;line-height:1.7;}
+.d-section .note-inline{color:#999;font-size:12px;}
+.d-list{margin-top:6px;border-top:1px solid var(--line);}
+.d-row{display:flex;align-items:center;justify-content:space-between;padding:20px 2px;border-bottom:1px solid var(--line);}
+.d-row span{font-weight:700;color:var(--navy);font-size:15px;}
+.map-btn{background:var(--navy);color:#fff;font-size:13px;font-weight:700;padding:10px 18px;border-radius:4px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
+.map-btn:hover{background:var(--heritage);}
+
+/* 관심고객등록 폼 (interest.html 및 index.html 임베드에서 공용으로 사용) */
+.form-box{max-width:560px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:8px;padding:40px;}
+.form-row{margin-bottom:22px;}
+.form-row label{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.form-row input[type=text],
+.form-row input[type=tel],
+.form-row select{
+  width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:4px;
+  font-family:var(--font);font-size:14px;color:var(--ink);background:#fff;
+}
+.form-row input:focus,.form-row select:focus{outline:none;border-color:var(--heritage);}
+.agree-box{background:var(--bg-soft);border-radius:6px;padding:16px 18px;font-size:12px;color:#888;max-height:120px;overflow-y:auto;line-height:1.7;margin-bottom:12px;}
+.agree-check{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--ink);}
+.agree-check input{margin-top:2px;flex:none;}
+.agree-required{display:block;margin-top:2px;}
+.submit-btn{width:100%;padding:16px;background:var(--navy);color:#fff;border:none;border-radius:4px;font-family:var(--font);font-size:16px;font-weight:700;cursor:pointer;margin-top:10px;}
+.submit-btn:hover{background:var(--heritage);}
+.done-box{display:none;text-align:center;padding:60px 20px;}
+.done-box .mark{width:64px;height:64px;border-radius:50%;background:var(--heritage);color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 18px;}
+
+/* 랜딩페이지 - 관심고객등록 타이틀 바로 아래, 등록폼 위에 노출되는 강조 프로모션 박스
+   (히어로가 짧아진 만큼 생긴 빈 공간을 채우고, 등록을 유도하는 눈에 띄는 카드 형태) */
+.quick-interest .page-title{padding-bottom:14px;}
+.promo-box{max-width:560px;margin:0 auto 32px;background:linear-gradient(135deg,var(--navy),var(--heritage));border-radius:10px;padding:22px 24px;text-align:center;box-shadow:0 8px 20px rgba(0,45,67,.18);}
+.promo-box p{color:#fff;font-weight:700;font-size:18px;letter-spacing:-.2px;}
+.promo-box p:first-child{font-size:15px;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:8px;}
+.quick-interest{padding:8px 0 44px;}
+
+/* 랜딩페이지 - 모바일 히어로 슬라이더 바로 아래, 세대수를 강조하는 띠 배너 (PC에서는 숨김) */
+.household-box{display:none;background:var(--bg-soft);border-top:3px solid var(--heritage);border-bottom:1px solid var(--line);padding:20px 0;text-align:center;}
+.household-box .hb-main{font-size:17px;font-weight:700;color:var(--navy);}
+.household-box .hb-sub{margin-top:6px;font-size:13px;color:#777;}
+
+/* 분양안내 - 공급안내 이미지가 세로로 매우 긴 문서형이라, 다른 카테고리 이미지처럼
+   보통 크기의 카드 형태로 보이도록 폭을 제한하고 가운데 정렬한다. */
+.doc-img-wrap{max-width:640px;margin:0 auto;}
+.doc-img-wrap .full-img{width:100%;}
+
+/* 모바일 전용 히어로 슬라이더 (카드형 이미지 - PC 배경 커버형과 별도로 동작)
+   - 사진 5장의 원본 세로 비율이 조금씩 달라 전환 시 높이가 들쭉날쭉했던 문제를,
+     가장 짧은 사진(1179x1097) 비율로 통일하고 object-fit:cover(top 기준)로 맞춰 해결.
+   - 슬라이딩은 절대배치 + transform으로 오른쪽에서 들어와 왼쪽으로 빠지는 방식. */
+.hero-mobile{display:none;background:#fff;position:relative;overflow:hidden;aspect-ratio:1179/1097;}
+.hero-slide-m{position:absolute;inset:0;transform:translateX(100%);transition:transform .6s ease;}
+.hero-slide-m.active{transform:translateX(0);}
+.hero-slide-m.leaving{transform:translateX(-100%);}
+.hero-slide-m img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+
+@media(max-width:900px){
+  .gnb-main{display:none;}
+  .quicknav{grid-template-columns:repeat(3,1fr);}
+  .grid3{grid-template-columns:1fr;}
+  .grid2{grid-template-columns:1fr;}
+  .hero{display:none;}
+  .hero-mobile{display:block;}
+  .household-box{display:block;}
+}
+
+/* ==========================================================================
+   모바일 내비게이션 (햄버거 메뉴 + 슬라이드 드로어, 하단 고정 액션바)
+   js에서 body에 직접 주입하므로 전 페이지 공통으로 동일하게 동작한다.
+   ========================================================================== */
+.hamburger-btn{display:none;background:none;border:none;width:26px;height:20px;position:relative;cursor:pointer;padding:0;flex:none;}
+.hamburger-btn span{position:absolute;left:0;right:0;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .25s;}
+.hamburger-btn span:nth-child(1){top:0;}
+.hamburger-btn span:nth-child(2){top:9px;}
+.hamburger-btn span:nth-child(3){top:18px;}
+.hamburger-btn.open span:nth-child(1){transform:translateY(9px) rotate(45deg);}
+.hamburger-btn.open span:nth-child(2){opacity:0;}
+.hamburger-btn.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
+
+.mobile-drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:400;opacity:0;pointer-events:none;transition:opacity .25s;}
+.mobile-drawer-overlay.open{opacity:1;pointer-events:auto;}
+.mobile-drawer{position:fixed;top:0;left:0;bottom:0;width:80%;max-width:320px;background:#fff;z-index:401;transform:translateX(-100%);transition:transform .3s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:4px 0 24px rgba(0,0,0,.2);}
+.mobile-drawer.open{transform:translateX(0);}
+.mobile-drawer .md-head{background:var(--dark);color:#fff;padding:22px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;}
+.mobile-drawer .md-head b{font-size:17px;}
+.mobile-drawer .md-close{background:none;border:none;color:#fff;font-size:26px;cursor:pointer;line-height:1;padding:0;}
+.mobile-drawer .md-list{padding-bottom:8px;}
+.mobile-drawer .md-cat{border-bottom:1px solid var(--line);}
+.mobile-drawer .md-cat-row{display:flex;align-items:stretch;cursor:pointer;}
+.mobile-drawer .md-cat-row a{flex:1;padding:15px 8px 15px 20px;font-size:15px;font-weight:700;color:var(--navy);}
+.mobile-drawer .md-arrow{background:none;border:none;padding:15px 20px;font-size:13px;color:#999;flex:none;cursor:pointer;transition:transform .2s;}
+.mobile-drawer .md-cat.open .md-arrow{transform:rotate(180deg);color:var(--heritage);}
+.mobile-drawer .md-sub{max-height:0;overflow:hidden;background:var(--bg-soft);transition:max-height .25s ease;}
+.mobile-drawer .md-cat.open .md-sub{max-height:600px;}
+.mobile-drawer .md-sub a{display:block;padding:12px 20px 12px 34px;font-size:13.5px;color:#666;border-top:1px solid var(--line);}
+.mobile-drawer .md-sub a:active{background:#eee;}
+.mobile-drawer .md-cta{padding:18px 20px;}
+.mobile-drawer .md-cta a{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:var(--navy);font-weight:700;padding:14px;border-radius:4px;font-size:15px;}
+body.no-scroll{overflow:hidden;}
+
+/* 하단 고정 모바일 액션바 (관심고객등록 / 카카오톡 상담 / 문자 상담하기) */
+.mobile-action-bar{display:none;}
+.mobile-action-bar .mab-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:9px 4px 10px;font-size:11.5px;font-weight:700;text-align:center;line-height:1.25;}
+.mobile-action-bar .ic{font-size:19px;}
+.mobile-action-bar .mab-interest{background:var(--navy);color:#fff;}
+.mobile-action-bar .mab-kakao{background:#fae100;color:#181600;}
+.mobile-action-bar .mab-sms{background:var(--skyblue);color:#fff;}
+
+@media(max-width:900px){
+  .hamburger-btn{display:block;}
+  .gnb-top .wrap{height:60px;gap:12px;}
+  .brand{font-size:16px;}
+  .brand small{display:none;}
+
+  /* 대표번호 - 모바일에서는 청록색 사각버튼, 헤더 우측 끝에 위아래 꽉 채워 배치 */
+  .gnb-cta{margin-left:auto;margin-right:-24px;}
+  .phone-badge{background:var(--heritage);color:#fff;padding:4px 18px;border-radius:0;flex-direction:column;align-items:center;justify-content:center;gap:0;height:60px;}
+  .phone-badge .pb-row{font-size:16px;gap:6px;}
+  .phone-badge .ic-phone{width:14px;height:14px;fill:#fff;}
+  .phone-badge .pb-tap{display:block;font-size:12px;font-weight:700;opacity:.95;margin-top:2px;}
+
+  .hero-dots{bottom:76px;}
+
+  .mobile-action-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:220;box-shadow:0 -3px 14px rgba(0,0,0,.15);height:64px;}
+  .mobile-action-bar .mab-item{padding:6px 4px;}
+
+  body{padding-bottom:64px;}
+
+  /* 푸터 - 대표번호를 하단 액션바 바로 위에 빈틈없이 붙는 가로 버튼으로, 링크는 2줄로 */
+  .site-footer{padding-bottom:0;}
+  .site-footer .wrap{flex-direction:column;align-items:stretch;}
+  .site-footer .footer-call-row{margin:18px -24px 0;}
+  .site-footer .phone-badge{width:100%;flex-direction:column;justify-content:center;align-items:center;gap:4px;min-height:64px;padding:12px 16px;border-radius:0;border:none;background:var(--heritage);}
+  .site-footer .phone-badge .pb-row{font-size:18px;line-height:1.2;}
+  .site-footer .phone-badge .pb-tap{display:block;font-size:12.5px;line-height:1.2;margin:0;opacity:.95;}
+}
+
+/* 이미지 라이트박스 (카테고리 내 이미지 클릭 시 원본 크기로 확대) */
+.lightbox-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:500;display:none;align-items:center;justify-content:center;padding:30px;}
+.lightbox-overlay.open{display:flex;}
+.lightbox-overlay .lightbox-img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 10px 40px rgba(0,0,0,.5);border-radius:2px;}
+.lightbox-overlay .lightbox-close{position:absolute;top:18px;right:22px;background:none;border:none;color:#fff;font-size:34px;cursor:pointer;line-height:1;z-index:501;}
+.content img{cursor:zoom-in;}
+
+/* 하단 푸터 링크 2줄 배치 (화면 폭과 무관하게 항상 2줄) */
+.site-footer .links-row{display:block;}
+.site-footer .links-row + .links-row{margin-top:6px;}
