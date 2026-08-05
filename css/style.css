@@ -5,6 +5,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
 
+html{scroll-padding-top:88px;}
+@media(max-width:900px){html{scroll-padding-top:60px;}}
+
 :root{
   --navy:#122d43;        /* Xi DEEP Blue */
   --gray:#d8d4cd;         /* Xi Gray */
