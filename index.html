@@ -5,8 +5,128 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>오산헤리티지자이</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+  /* 메인 진입 팝업 (가격 프리미엄 + 교통 프리미엄) — 정중앙에 두 장 붙여서 노출 */
+  #xipopWrap{position:fixed;inset:0;z-index:600;display:flex;justify-content:center;align-items:center;pointer-events:none;}
+  .xipop-popup{width:350px;pointer-events:auto;font-family:'Noto Sans KR',-apple-system,sans-serif;}
+  .xipop-tabwrap{display:flex;justify-content:center;}
+  .xipop-card{position:relative;background:linear-gradient(180deg,#102c4c 0%,#0d233e 100%);height:436px;padding:0 24px;overflow:hidden;}
+  .xipop-frame{position:absolute;top:9px;left:9px;right:9px;bottom:-20px;border:1px solid rgba(255,255,255,.24);border-radius:16px;pointer-events:none;}
+  .xipop-art{position:absolute;pointer-events:none;}
+  .xipop-close{display:block;width:62px;height:24px;padding:0;border:0;border-radius:9px 9px 0 0;background:#fff;color:#102c4c;font-family:inherit;font-size:11.5px;font-weight:700;letter-spacing:-.3px;cursor:pointer;transition:color .15s ease;}
+  .xipop-close:hover{color:#2f6ea8;}
+  .xipop-head{position:relative;display:flex;align-items:center;justify-content:flex-end;gap:8px;height:62px;padding-top:22px;border-bottom:1px solid rgba(255,255,255,.28);margin:0 -24px;padding-right:18px;}
+  .xipop-head .xipop-name{font-size:12px;font-weight:700;color:#fff;letter-spacing:-.4px;}
+  .xipop-head img{height:21px;display:block;}
+  .xipop-body{position:relative;padding-top:22px;}
+  .xipop-chip{display:inline-block;background:#56c8e8;color:#08223c;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:12px;letter-spacing:-.2px;}
+  .xipop-h1{margin-top:14px;height:76px;font-size:26.5px;font-weight:900;line-height:1.32;letter-spacing:-1.1px;color:#fff;}
+  .xipop-h1 span{color:#56c8e8;}
+  .xipop-h1 .sm{display:block;font-size:21px;letter-spacing:-.8px;color:#fff;}
+  .xipop-list{margin-top:26px;}
+  .xipop-item{height:52px;margin-bottom:18px;border-left:3px solid #56c8e8;padding-left:14px;}
+  .xipop-item b{display:block;font-size:19px;line-height:24px;font-weight:700;color:#fff;letter-spacing:-.8px;}
+  .xipop-item .xipop-row{display:flex;align-items:baseline;gap:9px;margin-top:7px;height:18px;}
+  .xipop-item i{font-size:13px;line-height:18px;font-style:normal;color:#a0b2c6;letter-spacing:-.3px;}
+  .xipop-item em{font-size:17.5px;line-height:18px;font-weight:900;font-style:normal;color:#56c8e8;letter-spacing:-.6px;}
+  .xipop-item .xipop-desc{display:block;margin-top:7px;height:18px;font-size:13px;line-height:18px;color:#a0b2c6;letter-spacing:-.3px;}
+  .xipop-cta{height:34px;display:flex;align-items:center;justify-content:center;gap:7px;background:#fff;font-size:11.5px;color:#69737d;cursor:pointer;}
+  .xipop-cta:hover{color:#102c4c;}
+  .xipop-cta .xipop-arrow{width:17px;height:17px;border-radius:50%;background:#102c4c;display:flex;align-items:center;justify-content:center;}
+  .xipop-cta .xipop-arrow::after{content:"";border-left:5px solid #fff;border-top:4px solid transparent;border-bottom:4px solid transparent;margin-left:2px;}
+  @media(max-width:740px){
+    #xipopWrap{flex-direction:column;overflow-y:auto;padding:16px 0;}
+  }
+</style>
 </head>
 <body>
+
+<div id="xipopWrap">
+  <div class="xipop-popup" id="xipopPrice">
+    <div class="xipop-tabwrap">
+      <button class="xipop-close" type="button" aria-label="팝업 닫기" onclick="closeXiPopup('xipopPrice')">닫기 X</button>
+    </div>
+    <div class="xipop-card">
+      <div class="xipop-frame"></div>
+      <svg class="xipop-art" style="right:20px;bottom:16px" width="104" height="130" viewBox="0 0 104 130">
+        <circle cx="16" cy="16" r="16" fill="#56c8e8"/>
+        <g fill="#0a2640">
+          <rect x="6" y="15" width="5.5" height="11" rx="1.6"/>
+          <rect x="12.5" y="13" width="13.5" height="13" rx="3.5"/>
+          <rect x="15" y="4" width="6" height="13" rx="3"/>
+        </g>
+        <rect x="20" y="44" width="34" height="86" rx="4" fill="rgba(255,255,255,.11)"/>
+        <rect x="58" y="68" width="30" height="62" rx="4" fill="rgba(255,255,255,.11)"/>
+        <g fill="rgba(86,200,232,.38)">
+          <rect x="27" y="54" width="7" height="7"/><rect x="40" y="54" width="7" height="7"/>
+          <rect x="27" y="66" width="7" height="7"/><rect x="40" y="66" width="7" height="7"/>
+          <rect x="27" y="78" width="7" height="7"/><rect x="40" y="78" width="7" height="7"/>
+          <rect x="27" y="90" width="7" height="7"/><rect x="40" y="90" width="7" height="7"/>
+          <rect x="27" y="102" width="7" height="7"/><rect x="40" y="102" width="7" height="7"/>
+          <rect x="27" y="114" width="7" height="7"/><rect x="40" y="114" width="7" height="7"/>
+          <rect x="64" y="78" width="6" height="6"/><rect x="76" y="78" width="6" height="6"/>
+          <rect x="64" y="90" width="6" height="6"/><rect x="76" y="90" width="6" height="6"/>
+          <rect x="64" y="102" width="6" height="6"/><rect x="76" y="102" width="6" height="6"/>
+          <rect x="64" y="114" width="6" height="6"/><rect x="76" y="114" width="6" height="6"/>
+        </g>
+        <rect x="12" y="128" width="88" height="2" fill="rgba(255,255,255,.18)"/>
+      </svg>
+      <div class="xipop-head"><span class="xipop-name">오산헤리티지자이</span><img src="data:image/png;base64,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" alt="X1"></div>
+      <div class="xipop-body">
+        <span class="xipop-chip">비규제 수혜단지</span>
+        <h1 class="xipop-h1">시세 대비 1억 낮은<br><span>합리적 분양가</span></h1>
+        <div class="xipop-list">
+          <div class="xipop-item"><b>비규제 수혜단지</b><i class="xipop-desc">대출·전매 규제 부담 최소화</i></div>
+          <div class="xipop-item"><b>시세 대비 1억↓</b><i class="xipop-desc">주변 시세 대비 낮은 분양가</i></div>
+          <div class="xipop-item"><b>삼성 직주근접</b><i class="xipop-desc">출퇴근이 가벼워지는 입지</i></div>
+        </div>
+      </div>
+    </div>
+    <a href="premium.html#price" class="xipop-cta">가격 프리미엄 바로가기<span class="xipop-arrow"></span></a>
+  </div>
+
+  <div class="xipop-popup" id="xipopTransit">
+    <div class="xipop-tabwrap">
+      <button class="xipop-close" type="button" aria-label="팝업 닫기" onclick="closeXiPopup('xipopTransit')">닫기 X</button>
+    </div>
+    <div class="xipop-card">
+      <div class="xipop-frame"></div>
+      <svg class="xipop-art" style="right:24px;bottom:16px" width="140" height="68" viewBox="0 0 140 68">
+        <g stroke="rgba(86,200,232,.36)" stroke-width="2.5" stroke-linecap="round">
+          <line x1="0" y1="10" x2="26" y2="10"/><line x1="8" y1="24" x2="26" y2="24"/>
+          <line x1="4" y1="38" x2="26" y2="38"/>
+        </g>
+        <rect x="34" y="0" width="104" height="54" rx="14" fill="rgba(255,255,255,.12)"/>
+        <g fill="rgba(86,200,232,.38)">
+          <rect x="43" y="10" width="15" height="19" rx="3"/>
+          <rect x="63" y="10" width="15" height="19" rx="3"/>
+          <rect x="83" y="10" width="15" height="19" rx="3"/>
+          <rect x="106" y="10" width="22" height="19" rx="6"/>
+        </g>
+        <line x1="88" y1="35" x2="88" y2="50" stroke="rgba(255,255,255,.18)" stroke-width="1.5"/>
+        <circle cx="127" cy="44" r="3.5" fill="rgba(255,255,255,.5)"/>
+        <rect x="22" y="63" width="118" height="2.5" rx="1.2" fill="rgba(255,255,255,.22)"/>
+      </svg>
+      <div class="xipop-head"><span class="xipop-name">오산헤리티지자이</span><img src="data:image/png;base64,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" alt="X1"></div>
+      <div class="xipop-body">
+        <span class="xipop-chip">광역교통 3중 수혜</span>
+        <h1 class="xipop-h1"><span class="sm">GTX-C · 동탄트램 · 1호선</span><span>세 노선이 만나는 자리</span></h1>
+        <div class="xipop-list">
+          <div class="xipop-item"><b>GTX-C 노선 수혜지</b><div class="xipop-row"><i>강남까지</i><em>7정거장</em></div></div>
+          <div class="xipop-item"><b>동탄트램 수혜지</b><div class="xipop-row"><i>동탄역까지</i><em>7정거장</em></div></div>
+          <div class="xipop-item"><b>1호선 동탄역 연결</b><div class="xipop-row"><i>동탄역까지</i><em>3정거장</em></div></div>
+        </div>
+      </div>
+    </div>
+    <a href="premium.html#traffic" class="xipop-cta">교통 프리미엄 바로가기<span class="xipop-arrow"></span></a>
+  </div>
+</div>
+<script>
+  function closeXiPopup(id){
+    var el = document.getElementById(id);
+    if(el) el.style.display = 'none';
+  }
+</script>
 
 <header class="site-header">
   <div class="gnb-top">
@@ -29,9 +149,8 @@
           <a href="premium.html#life" data-panel="life">생활 프리미엄</a>
         </div>
         </li>
-        <li><a href="sale.html">분양안내</a>
+        <li><a href="sale.html">모집공고</a>
         <div class="gnb-dropdown">
-          <a href="sale.html#overview" data-panel="overview">분양안내</a>
           <a href="sale.html#notice1" data-panel="notice1">1단지 모집공고</a>
           <a href="sale.html#notice2" data-panel="notice2">2단지 모집공고</a>
         </div>
