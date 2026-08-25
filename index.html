@@ -46,15 +46,21 @@
 
   /* 한시적 혜택 패널 — 다른 두 패널과 구분되도록 밝은 베이지 바탕 + 레드 포인트로 차별화,
      카드 높이를 내용에 맞게 자동으로 늘려 하단 텍스트가 잘리지 않게 함 */
-  #xipopBonus .xipop-card{background:linear-gradient(180deg,#f7ecd9 0%,#efdcbd 100%);height:auto;min-height:436px;overflow:visible;}
-  #xipopBonus .xipop-frame{border-color:rgba(192,57,43,.28);}
-  #xipopBonus .xipop-chip{background:#c0392b;color:#fdf3e7;}
-  #xipopBonus .xipop-h1{height:auto;color:#3a2418;}
-  #xipopBonus .xipop-h1 span{color:#c0392b;}
-  #xipopBonus .xipop-item{border-left-color:#c0392b;}
-  #xipopBonus .xipop-item b{color:#3a2418;}
-  #xipopBonus .xipop-item .xipop-desc{color:#8a6a52;}
-  #xipopBonus .xipop-cta .xipop-arrow{background:#c0392b;}
+  #xipopBonus .xipop-card, #m-xipopBonus .xipop-card{background:linear-gradient(180deg,#f7ecd9 0%,#efdcbd 100%);height:auto;min-height:436px;overflow:visible;}
+  #xipopBonus .xipop-frame, #m-xipopBonus .xipop-frame{border-color:rgba(192,57,43,.28);}
+  #xipopBonus .xipop-chip, #m-xipopBonus .xipop-chip{background:#c0392b;color:#fdf3e7;}
+  #xipopBonus .xipop-h1, #m-xipopBonus .xipop-h1{height:auto;color:#3a2418;}
+  #xipopBonus .xipop-h1 span, #m-xipopBonus .xipop-h1 span{color:#c0392b;}
+  #xipopBonus .xipop-item, #m-xipopBonus .xipop-item{border-left-color:#c0392b;}
+  #xipopBonus .xipop-item b, #m-xipopBonus .xipop-item b{color:#3a2418;}
+  #xipopBonus .xipop-item .xipop-desc, #m-xipopBonus .xipop-item .xipop-desc{color:#8a6a52;}
+  #xipopBonus .xipop-cta .xipop-arrow, #m-xipopBonus .xipop-cta .xipop-arrow{background:#c0392b;}
+
+  /* 모바일 전용 팝업 - 한시적 혜택은 맨 위에 단독으로, 가격·교통은 그 아래 세로로 쌓아서 노출 */
+  .mobile-popup-solo{margin-bottom:20px;}
+  .mobile-popup-solo .xipop-popup{width:100%;max-width:350px;margin:0 auto;}
+  .mobile-popup-stack{display:flex;flex-direction:column;gap:16px;}
+  .mobile-popup-stack .xipop-popup{width:100%;max-width:350px;margin:0 auto;}
   .xipop-popup{width:350px;font-family:'Noto Sans KR',-apple-system,sans-serif;}
   .xipop-tabwrap{display:flex;justify-content:center;}
   .xipop-card{position:relative;background:linear-gradient(180deg,#102c4c 0%,#0d233e 100%);height:436px;padding:0 24px;overflow:hidden;}
@@ -79,6 +85,9 @@
   .xipop-item .xipop-desc{display:block;margin-top:7px;height:18px;font-size:13px;line-height:18px;color:#a0b2c6;letter-spacing:-.3px;}
   .xipop-cta{height:34px;display:flex;align-items:center;justify-content:center;gap:7px;background:#fff;font-size:11.5px;color:#69737d;cursor:pointer;}
   .xipop-cta:hover{color:#102c4c;}
+  /* 모바일 팝업 전용 - 버튼처럼 확실히 보이게 알약형 + 그림자 (PC는 기존 스타일 유지) */
+  .mobile-popup-banner .xipop-cta{height:42px;font-size:12.5px;font-weight:700;color:#102c4c;border-radius:21px;box-shadow:0 4px 14px rgba(0,0,0,.2);width:84%;margin:-21px auto 0;position:relative;z-index:2;}
+  .mobile-popup-banner .xipop-cta:hover{color:#0d233e;}
   .xipop-cta .xipop-arrow{width:17px;height:17px;border-radius:50%;background:#102c4c;display:flex;align-items:center;justify-content:center;}
   .xipop-cta .xipop-arrow::after{content:"";border-left:5px solid #fff;border-top:4px solid transparent;border-bottom:4px solid transparent;margin-left:2px;}
 
@@ -313,10 +322,131 @@
   </div>
 </section>
 
-<!-- 모바일 전용 프리미엄 안내 이미지 (PC 팝업과 동일 디자인, 모바일에서는 팝업 대신 정적 이미지로 삽입) -->
+<!-- 모바일 전용 프리미엄 안내 (PC 팝업과 동일 카드 디자인, 모바일에서는 세로로 쌓아서 노출) -->
 <section class="mobile-popup-banner">
   <div class="wrap">
-    <img src="assets/mobile-promo/popup.png" alt="교통 프리미엄 · 가격 프리미엄 안내">
+    <div class="mobile-popup-solo">
+      <div class="xipop-popup" id="m-xipopBonus">
+        <div class="xipop-card">
+          <div class="xipop-frame"></div>
+          <svg class="xipop-art" style="right:16px;bottom:14px" width="270" height="118" viewBox="0 0 270 118">
+            <!-- 상품권(지폐) 카드 -->
+            <g transform="rotate(-8 38 24)">
+              <rect x="10" y="6" width="56" height="36" rx="5" fill="rgba(192,57,43,.10)" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="3,2.4"/>
+              <text x="38" y="30" font-family="'Noto Sans KR',sans-serif" font-size="16" font-weight="900" fill="#c0392b" text-anchor="middle">₩</text>
+            </g>
+            <!-- 작은 선물상자 1 -->
+            <rect x="78" y="60" width="32" height="28" rx="4" fill="rgba(192,57,43,.10)"/>
+            <rect x="78" y="60" width="32" height="9" rx="3" fill="rgba(192,57,43,.24)"/>
+            <rect x="92" y="60" width="5" height="28" fill="rgba(192,57,43,.42)"/>
+            <path d="M94 60c-5-2-9-7-5-10 3.5-2.5 7 3 5 10z" fill="#c0392b"/>
+            <path d="M94 60c5-2 9-7 5-10-3.5-2.5-7 3-5 10z" fill="#c0392b"/>
+            <!-- 큰 선물상자 -->
+            <rect x="118" y="34" width="58" height="52" rx="5" fill="rgba(192,57,43,.13)"/>
+            <rect x="118" y="34" width="58" height="15" rx="4" fill="rgba(192,57,43,.30)"/>
+            <rect x="143" y="34" width="8" height="52" fill="rgba(192,57,43,.5)"/>
+            <path d="M147 34c-9-4-16-13-9-19 6-4 12 5 9 19z" fill="#c0392b"/>
+            <path d="M147 34c9-4 16-13 9-19-6-4-12 5-9 19z" fill="#c0392b"/>
+            <circle cx="147" cy="12" r="4" fill="rgba(192,57,43,.6)"/>
+            <!-- 작은 선물상자 2 -->
+            <rect x="192" y="66" width="26" height="22" rx="4" fill="rgba(227,185,138,.45)"/>
+            <rect x="192" y="66" width="26" height="8" rx="3" fill="rgba(192,57,43,.26)"/>
+            <rect x="203" y="66" width="4" height="22" fill="rgba(192,57,43,.42)"/>
+            <path d="M205 66c-4-2-7-6-4-8 3-2 6 2 4 8z" fill="#c0392b"/>
+            <path d="M205 66c4-2 7-6 4-8-3-2-6 2-4 8z" fill="#c0392b"/>
+            <!-- 축하 느낌 스파클/컨페티 포인트 -->
+            <text x="64" y="26" font-size="16" fill="#c0392b" opacity=".55">✦</text>
+            <text x="228" y="30" font-size="13" fill="#c0392b" opacity=".45">✦</text>
+            <text x="100" y="104" font-size="11" fill="#c0392b" opacity=".5">✦</text>
+            <text x="4" y="66" font-size="12" fill="#c0392b" opacity=".4">✦</text>
+            <text x="248" y="96" font-size="12" fill="#c0392b" opacity=".45">✦</text>
+          </svg>
+          <div class="xipop-body">
+            <span class="xipop-chip">8월 한시적 혜택</span>
+            <h1 class="xipop-h1">선착순 계약 시<br><span>상품권 100만원 증정</span></h1>
+            <div class="xipop-list">
+              <div class="xipop-item"><b>선착순 계약 혜택</b><i class="xipop-desc">계약 완료 고객 대상 증정</i></div>
+              <div class="xipop-item"><b>한시적 프로모션</b><i class="xipop-desc">조기 마감될 수 있습니다</i></div>
+            </div>
+          </div>
+        </div>
+        <a href="#quickInterest" class="xipop-cta">관심고객등록 바로가기<span class="xipop-arrow"></span></a>
+      </div>
+    </div>
+
+    <div class="mobile-popup-stack">
+
+      <div class="xipop-popup" id="m-xipopPrice">
+        <div class="xipop-card">
+          <div class="xipop-frame"></div>
+          <svg class="xipop-art" style="right:20px;bottom:16px" width="104" height="130" viewBox="0 0 104 130">
+            <circle cx="16" cy="16" r="16" fill="#56c8e8"/>
+            <g fill="#0a2640">
+              <rect x="6" y="15" width="5.5" height="11" rx="1.6"/>
+              <rect x="12.5" y="13" width="13.5" height="13" rx="3.5"/>
+              <rect x="15" y="4" width="6" height="13" rx="3"/>
+            </g>
+            <rect x="20" y="44" width="34" height="86" rx="4" fill="rgba(255,255,255,.11)"/>
+            <rect x="58" y="68" width="30" height="62" rx="4" fill="rgba(255,255,255,.11)"/>
+            <g fill="rgba(86,200,232,.38)">
+              <rect x="27" y="54" width="7" height="7"/><rect x="40" y="54" width="7" height="7"/>
+              <rect x="27" y="66" width="7" height="7"/><rect x="40" y="66" width="7" height="7"/>
+              <rect x="27" y="78" width="7" height="7"/><rect x="40" y="78" width="7" height="7"/>
+              <rect x="27" y="90" width="7" height="7"/><rect x="40" y="90" width="7" height="7"/>
+              <rect x="27" y="102" width="7" height="7"/><rect x="40" y="102" width="7" height="7"/>
+              <rect x="27" y="114" width="7" height="7"/><rect x="40" y="114" width="7" height="7"/>
+              <rect x="64" y="78" width="6" height="6"/><rect x="76" y="78" width="6" height="6"/>
+              <rect x="64" y="90" width="6" height="6"/><rect x="76" y="90" width="6" height="6"/>
+              <rect x="64" y="102" width="6" height="6"/><rect x="76" y="102" width="6" height="6"/>
+              <rect x="64" y="114" width="6" height="6"/><rect x="76" y="114" width="6" height="6"/>
+            </g>
+            <rect x="12" y="128" width="88" height="2" fill="rgba(255,255,255,.18)"/>
+          </svg>
+          <div class="xipop-body">
+            <span class="xipop-chip">비규제 수혜단지</span>
+            <h1 class="xipop-h1">시세 대비 1억 낮은<br><span>합리적 분양가</span></h1>
+            <div class="xipop-list">
+              <div class="xipop-item"><b>비규제 수혜단지</b><i class="xipop-desc">대출·전매 규제 부담 최소화</i></div>
+              <div class="xipop-item"><b>시세 대비 1억↓</b><i class="xipop-desc">주변 시세 대비 낮은 분양가</i></div>
+              <div class="xipop-item"><b>삼성 직주근접</b><i class="xipop-desc">출퇴근이 가벼워지는 입지</i></div>
+            </div>
+          </div>
+        </div>
+        <a href="premium.html#price" class="xipop-cta">가격 프리미엄 바로가기<span class="xipop-arrow"></span></a>
+      </div>
+
+      <div class="xipop-popup" id="m-xipopTransit">
+        <div class="xipop-card">
+          <div class="xipop-frame"></div>
+          <svg class="xipop-art" style="right:24px;bottom:16px" width="140" height="68" viewBox="0 0 140 68">
+            <g stroke="rgba(86,200,232,.36)" stroke-width="2.5" stroke-linecap="round">
+              <line x1="0" y1="10" x2="26" y2="10"/><line x1="8" y1="24" x2="26" y2="24"/>
+              <line x1="4" y1="38" x2="26" y2="38"/>
+            </g>
+            <rect x="34" y="0" width="104" height="54" rx="14" fill="rgba(255,255,255,.12)"/>
+            <g fill="rgba(86,200,232,.38)">
+              <rect x="43" y="10" width="15" height="19" rx="3"/>
+              <rect x="63" y="10" width="15" height="19" rx="3"/>
+              <rect x="83" y="10" width="15" height="19" rx="3"/>
+              <rect x="106" y="10" width="22" height="19" rx="6"/>
+            </g>
+            <line x1="88" y1="35" x2="88" y2="50" stroke="rgba(255,255,255,.18)" stroke-width="1.5"/>
+            <circle cx="127" cy="44" r="3.5" fill="rgba(255,255,255,.5)"/>
+            <rect x="22" y="63" width="118" height="2.5" rx="1.2" fill="rgba(255,255,255,.22)"/>
+          </svg>
+          <div class="xipop-body">
+            <span class="xipop-chip">광역교통 3중 수혜</span>
+            <h1 class="xipop-h1"><span class="sm">GTX-C · 동탄트램 · 1호선</span><span>세 노선이 만나는 자리</span></h1>
+            <div class="xipop-list">
+              <div class="xipop-item"><b>GTX-C 노선 수혜지</b><div class="xipop-row"><i>강남까지</i><em>7정거장</em></div></div>
+              <div class="xipop-item"><b>동탄트램 수혜지</b><div class="xipop-row"><i>동탄역까지</i><em>7정거장</em></div></div>
+              <div class="xipop-item"><b>1호선 동탄역 연결</b><div class="xipop-row"><i>동탄역까지</i><em>3정거장</em></div></div>
+            </div>
+          </div>
+        </div>
+        <a href="premium.html#traffic" class="xipop-cta">교통 프리미엄 바로가기<span class="xipop-arrow"></span></a>
+      </div>
+    </div>
   </div>
 </section>
 
