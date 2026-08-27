@@ -229,7 +229,7 @@ table th{background:var(--bg-soft);color:var(--navy);font-weight:700;width:160px
 .quick-interest{padding:8px 0 44px;}
 
 /* 랜딩페이지 - 모바일 히어로 슬라이더 바로 아래, 세대수를 강조하는 띠 배너 (PC에서는 숨김) */
-.household-box{display:none;background:var(--bg-soft);border-top:3px solid var(--heritage);border-bottom:1px solid var(--line);padding:20px 0;text-align:center;}
+.household-box{display:none;background:var(--bg-soft);border-top:3px solid var(--heritage);border-bottom:1px solid var(--line);padding:12px 0;text-align:center;}
 .household-box .hb-main{font-size:17px;font-weight:700;color:var(--navy);}
 .household-box .hb-sub{margin-top:6px;font-size:13px;color:#777;}
 
