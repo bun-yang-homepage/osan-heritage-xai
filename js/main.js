@@ -252,6 +252,24 @@ function initImageLightbox(){
   });
 }
 
+// 휴대폰 번호 자동 하이픈 - 숫자만 입력해도 010-0000-0000 형식으로 맞춰서
+// 구글시트에도 하이픈 붙은 형태로 그대로 저장되게 한다.
+function formatPhoneNumber(value){
+  const digits = value.replace(/\D/g, '').slice(0, 11);
+  if(digits.length < 4) return digits;
+  if(digits.length < 7) return digits.slice(0, 3) + '-' + digits.slice(3);
+  if(digits.length < 11) return digits.slice(0, 3) + '-' + digits.slice(3, 6) + '-' + digits.slice(6);
+  return digits.slice(0, 3) + '-' + digits.slice(3, 7) + '-' + digits.slice(7);
+}
+
+function initPhoneFormatting(){
+  document.querySelectorAll('input[name="phone"]').forEach(input => {
+    input.addEventListener('input', () => {
+      input.value = formatPhoneNumber(input.value);
+    });
+  });
+}
+
 // 관심고객등록 폼 제출 처리 - interest.html의 정식 폼과 index.html에 임베드된 간편폼이
 // 둘 다 동일한 class(.interest-form)를 사용하므로, id 대신 "가장 가까운 부모 안의 done-box"를
 // 찾는 방식으로 두 군데 모두에서 각각 독립적으로 동작한다.
@@ -306,6 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileActionBar();
   initImageLightbox();
   initInterestForms();
+  initPhoneFormatting();
 
   // 프리미엄 상세 탭 (가격/교통/생활)
   document.querySelectorAll('.premium-tabs button').forEach(btn => {
