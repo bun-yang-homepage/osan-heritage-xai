@@ -64,7 +64,15 @@
   .xipop-head .xipop-name{font-size:12px;font-weight:700;color:#fff;letter-spacing:-.4px;}
   .xipop-head img{height:21px;display:block;}
   .xipop-body{position:relative;padding-top:22px;}
-  .xipop-chip{display:inline-block;background:#56c8e8;color:#08223c;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:12px;letter-spacing:-.2px;}
+  .xipop-chip{display:inline-block;background:#56c8e8;color:#08223c;font-size:13px;font-weight:700;padding:7px 15px;border-radius:14px;letter-spacing:-.2px;}
+  .xipop-card.xipop-bonus{background:linear-gradient(180deg,#fff3e6 0%,#fbe2cf 100%);}
+  .xipop-bonus .xipop-frame{border-color:rgba(150,60,30,.22);}
+  .xipop-bonus .xipop-chip{background:#c0392b;color:#fff;}
+  .xipop-bonus .xipop-h1{color:#5c2415;}
+  .xipop-bonus .xipop-h1 span{color:#c0392b;}
+  .xipop-bonus .xipop-item{border-left-color:#c0392b;}
+  .xipop-bonus .xipop-item b{color:#5c2415;}
+  .xipop-bonus .xipop-item i,.xipop-bonus .xipop-item .xipop-desc{color:#9c6b52;}
   .xipop-h1{margin-top:14px;height:76px;font-size:26.5px;font-weight:900;line-height:1.32;letter-spacing:-1.1px;color:#fff;}
   .xipop-h1 span{color:#56c8e8;}
   .xipop-h1 .sm{display:block;font-size:21px;letter-spacing:-.8px;color:#fff;}
@@ -101,6 +109,54 @@
       <button class="xipop-close" type="button" aria-label="팝업 닫기" onclick="closeXiPopupAll()">닫기 X</button>
     </div>
     <div class="xipop-pair">
+  <div class="xipop-popup" id="xipopContract">
+    <div class="xipop-card">
+      <div class="xipop-frame"></div>
+      <svg class="xipop-art" style="right:22px;bottom:18px" width="120" height="120" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="48" fill="rgba(255,255,255,.07)"/>
+        <text x="60" y="74" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="rgba(86,200,232,.85)">%</text>
+        <rect x="18" y="98" width="84" height="2.5" rx="1.2" fill="rgba(255,255,255,.18)"/>
+      </svg>
+      <div class="xipop-body">
+        <span class="xipop-chip">파격 계약조건 변경</span>
+        <h1 class="xipop-h1"><span class="sm">29년 9월 입주 시까지</span><span>3천만원대로 내 집마련</span></h1>
+        <div class="xipop-list">
+          <div class="xipop-item"><b>계약금 10%→5%</b><i class="xipop-desc">계약 부담 대폭 완화</i></div>
+          <div class="xipop-item"><b>입주 시까지 유예</b><i class="xipop-desc">최소 자금으로 걱정 없이</i></div>
+          <div class="xipop-item"><b>미래가치 선점</b><i class="xipop-desc">지금이 가장 빠른 타이밍</i></div>
+        </div>
+      </div>
+    </div>
+    <a href="complex.html" class="xipop-cta">단지안내 바로가기<span class="xipop-arrow"></span></a>
+  </div>
+
+  <div class="xipop-popup" id="xipopBonus">
+    <div class="xipop-card xipop-bonus">
+      <div class="xipop-frame"></div>
+      <svg class="xipop-art" style="right:18px;bottom:14px" width="130" height="110" viewBox="0 0 130 110">
+        <rect x="10" y="46" width="54" height="46" rx="4" fill="rgba(192,57,43,.16)"/>
+        <rect x="10" y="46" width="54" height="14" fill="rgba(192,57,43,.28)"/>
+        <rect x="33" y="46" width="8" height="46" fill="rgba(192,57,43,.4)"/>
+        <path d="M37 46 C 24 34, 20 20, 30 18 C 40 16, 40 34, 37 46 Z" fill="rgba(192,57,43,.32)"/>
+        <path d="M37 46 C 50 34, 54 20, 44 18 C 34 16, 34 34, 37 46 Z" fill="rgba(192,57,43,.32)"/>
+        <rect x="58" y="6" width="66" height="40" rx="6" fill="rgba(192,57,43,.14)" stroke="rgba(192,57,43,.35)" stroke-width="2"/>
+        <circle cx="91" cy="26" r="11" fill="rgba(192,57,43,.28)"/>
+        <text x="91" y="31" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="900" fill="#c0392b">100</text>
+        <rect x="64" y="12" width="10" height="2.5" rx="1.2" fill="rgba(192,57,43,.4)"/>
+        <rect x="64" y="34" width="10" height="2.5" rx="1.2" fill="rgba(192,57,43,.4)"/>
+      </svg>
+      <div class="xipop-body">
+        <span class="xipop-chip">9월 한시적 혜택</span>
+        <h1 class="xipop-h1">선착순 계약 시<br><span>상품권 100만원 증정</span></h1>
+        <div class="xipop-list">
+          <div class="xipop-item"><b>선착순 한정 혜택</b><i class="xipop-desc">계약 완료 고객 대상 즉시 지급</i></div>
+          <div class="xipop-item"><b>9월 한 달간 진행</b><i class="xipop-desc">기간 종료 전 서둘러 상담하세요</i></div>
+        </div>
+      </div>
+    </div>
+    <a href="interest.html" class="xipop-cta">관심고객등록 바로가기<span class="xipop-arrow"></span></a>
+  </div>
+
   <div class="xipop-popup" id="xipopPrice">
     <div class="xipop-card">
       <div class="xipop-frame"></div>
@@ -272,6 +328,54 @@
 <section class="mobile-popup-banner">
   <div class="wrap">
     <div class="mobile-popup-stack">
+
+      <div class="xipop-popup" id="m-xipopContract">
+        <div class="xipop-card">
+          <div class="xipop-frame"></div>
+          <svg class="xipop-art" style="right:22px;bottom:18px" width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="48" fill="rgba(255,255,255,.07)"/>
+            <text x="60" y="74" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="rgba(86,200,232,.85)">%</text>
+            <rect x="18" y="98" width="84" height="2.5" rx="1.2" fill="rgba(255,255,255,.18)"/>
+          </svg>
+          <div class="xipop-body">
+            <span class="xipop-chip">파격 계약조건 변경</span>
+            <h1 class="xipop-h1"><span class="sm">29년 9월 입주 시까지</span><span>3천만원대로 내 집마련</span></h1>
+            <div class="xipop-list">
+              <div class="xipop-item"><b>계약금 10%→5%</b><i class="xipop-desc">계약 부담 대폭 완화</i></div>
+              <div class="xipop-item"><b>입주 시까지 유예</b><i class="xipop-desc">최소 자금으로 걱정 없이</i></div>
+              <div class="xipop-item"><b>미래가치 선점</b><i class="xipop-desc">지금이 가장 빠른 타이밍</i></div>
+            </div>
+          </div>
+        </div>
+        <a href="complex.html" class="xipop-cta">단지안내 바로가기<span class="xipop-arrow"></span></a>
+      </div>
+
+      <div class="xipop-popup" id="m-xipopBonus">
+        <div class="xipop-card xipop-bonus">
+          <div class="xipop-frame"></div>
+          <svg class="xipop-art" style="right:18px;bottom:14px" width="130" height="110" viewBox="0 0 130 110">
+            <rect x="10" y="46" width="54" height="46" rx="4" fill="rgba(192,57,43,.16)"/>
+            <rect x="10" y="46" width="54" height="14" fill="rgba(192,57,43,.28)"/>
+            <rect x="33" y="46" width="8" height="46" fill="rgba(192,57,43,.4)"/>
+            <path d="M37 46 C 24 34, 20 20, 30 18 C 40 16, 40 34, 37 46 Z" fill="rgba(192,57,43,.32)"/>
+            <path d="M37 46 C 50 34, 54 20, 44 18 C 34 16, 34 34, 37 46 Z" fill="rgba(192,57,43,.32)"/>
+            <rect x="58" y="6" width="66" height="40" rx="6" fill="rgba(192,57,43,.14)" stroke="rgba(192,57,43,.35)" stroke-width="2"/>
+            <circle cx="91" cy="26" r="11" fill="rgba(192,57,43,.28)"/>
+            <text x="91" y="31" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="900" fill="#c0392b">100</text>
+            <rect x="64" y="12" width="10" height="2.5" rx="1.2" fill="rgba(192,57,43,.4)"/>
+            <rect x="64" y="34" width="10" height="2.5" rx="1.2" fill="rgba(192,57,43,.4)"/>
+          </svg>
+          <div class="xipop-body">
+            <span class="xipop-chip">9월 한시적 혜택</span>
+            <h1 class="xipop-h1">선착순 계약 시<br><span>상품권 100만원 증정</span></h1>
+            <div class="xipop-list">
+              <div class="xipop-item"><b>선착순 한정 혜택</b><i class="xipop-desc">계약 완료 고객 대상 즉시 지급</i></div>
+              <div class="xipop-item"><b>9월 한 달간 진행</b><i class="xipop-desc">기간 종료 전 서둘러 상담하세요</i></div>
+            </div>
+          </div>
+        </div>
+        <a href="interest.html" class="xipop-cta">관심고객등록 바로가기<span class="xipop-arrow"></span></a>
+      </div>
 
       <div class="xipop-popup" id="m-xipopPrice">
         <div class="xipop-card">
