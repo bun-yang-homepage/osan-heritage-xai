@@ -313,8 +313,6 @@
 
 /* ---------- 히어로 (좌: 문구 / 우: 벤츠 + 풀옵션) ---------- */
 .ph-hero-in{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);grid-template-areas:"copy gifts" "meta gifts";column-gap:52px;row-gap:0;align-items:center;padding:64px 24px 60px;}
-.ph-hero-copy{grid-area:copy;align-self:end;}
-.ph-hero-meta{grid-area:meta;align-self:start;}
 .ph-gifts{grid-area:gifts;position:relative;z-index:2;}
 .ph-hero h1{font-size:46px;}
 .ph-hero .ph-lead{font-size:16.5px;}
@@ -413,4 +411,23 @@
   .ph-gfoot .nm em{font-size:17px;display:block;}
   .ph-gopts .o span{font-size:12px;}
   .ph-gopts .o.more b{font-size:24px;}
+}
+
+/* ---------- v6 : 왼쪽 문구를 오른쪽 선물 카드 높이에 맞춰 위·아래 라인 정렬 ---------- */
+.ph-hero-in{grid-template-areas:"left gifts";align-items:stretch;}
+.ph-hero-left{grid-area:left;display:flex;flex-direction:column;justify-content:space-between;gap:20px;}
+.ph-hero .ph-hero-left > *{margin-top:0;}
+.ph-hero-left .ph-eyebrow{align-self:flex-start;}
+.ph-hero-left .ph-stats{max-width:none;}
+.ph-hero-left .ph-hero-cta{margin-top:0;}
+@media(min-width:1101px){.ph-hero h1{font-size:50px;}}
+@media(max-width:900px){
+  .ph-hero-in{grid-template-areas:none;grid-template-columns:1fr;row-gap:0;}
+  .ph-hero-left{display:contents;}
+  .ph-hero-left .ph-eyebrow{justify-self:start;}
+  .ph-hero .ph-hero-left > .ph-stats{order:5;margin-top:24px;}
+  .ph-hero .ph-hero-left > .ph-hero-cta{order:6;margin-top:22px;}
+  .ph-hero .ph-hero-left > h1{margin-top:22px;}
+  .ph-hero .ph-hero-left > .ph-lead{margin-top:16px;}
+  .ph-gifts{grid-area:auto;order:4;margin-top:26px;}
 }
