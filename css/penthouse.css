@@ -564,3 +564,10 @@
   .ph-hero .ph-hero-left .ph-stat{padding:16px 14px;}
   .ph-hero .ph-hero-left .ph-stat b{font-size:21px;}
 }
+
+/* ---------- v16 : 풀옵션 9종(모집공고 기준) - 124㎡ 참고 금액 ---------- */
+.ph-ogrid.all .oc small i{display:block;margin-top:6px;font-style:normal;font-size:12px;font-weight:800;color:#9a6f1d;letter-spacing:-.3px;}
+.ph-ogrid.all .oc small{flex:1;}
+.ph-ofine{line-height:1.75;}
+.ph-ogrid.all .oc{min-height:236px;}
+@media(max-width:1100px){.ph-ogrid.all .oc{min-height:0;}}
