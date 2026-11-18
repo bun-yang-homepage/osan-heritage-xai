@@ -530,3 +530,8 @@
   .ph-ogrid.all .oc{flex-basis:calc((100% - 10px) / 2);padding:18px 10px 16px;}
   .ph-plus span{width:52px;height:52px;font-size:40px;line-height:47px;}
 }
+
+/* ---------- v13 : 확장 시 기본 제공품목 배너 - 남색 베이스 ---------- */
+.ph-ototal.navy{background:radial-gradient(500px 200px at 15% 50%,rgba(217,178,106,.22),transparent 70%),linear-gradient(100deg,#0b1e2e,#173a58);border-color:#e2bf7c;box-shadow:0 14px 32px rgba(11,30,46,.35);}
+.ph-ototal.navy .txt b em{color:#f1d28f;}
+.ph-ototal.navy .free{background:linear-gradient(180deg,#f0d392,#d9b26a);color:#3a2a0e;}
