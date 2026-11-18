@@ -517,3 +517,16 @@
 .ph-opt .tt .msg{font-size:15.5px;font-weight:900;letter-spacing:-.5px;color:#fff;}
 .ph-opt .tt .msg em{font-style:normal;color:#ffd98a;}
 @media(max-width:900px){.ph-opt .tt .msg{font-size:14px;line-height:1.45;}}
+
+/* ---------- v12 : 옵션 14종 동일 크기 카드 + 확장 제공품목 20종 배너 ---------- */
+.ph-ogrid.all{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+.ph-ogrid.all .oc{flex:0 0 calc((100% - 56px) / 5);padding:22px 12px 18px;}
+.ph-plus{display:flex;justify-content:center;margin:4px 0 22px;}
+.ph-plus span{width:64px;height:64px;border-radius:50%;background:linear-gradient(180deg,#f0d392,#d9b26a);color:#5c2415;font-size:50px;font-weight:900;line-height:58px;text-align:center;box-shadow:0 8px 18px rgba(185,143,69,.45),0 0 0 6px rgba(217,178,106,.25);}
+.ph-ototal + .ph-opt{margin-top:20px;}
+@media(max-width:1100px){.ph-ogrid.all .oc{flex-basis:calc((100% - 28px) / 3);}}
+@media(max-width:900px){
+  .ph-ogrid.all{gap:10px;}
+  .ph-ogrid.all .oc{flex-basis:calc((100% - 10px) / 2);padding:18px 10px 16px;}
+  .ph-plus span{width:52px;height:52px;font-size:40px;line-height:47px;}
+}
