@@ -431,3 +431,24 @@
   .ph-hero .ph-hero-left > .ph-lead{margin-top:16px;}
   .ph-gifts{grid-area:auto;order:4;margin-top:26px;}
 }
+
+/* ---------- v7 : 테라스 라벨을 구역 중앙으로, 점선 테두리 굵게 ---------- */
+.ph-plan .flag{left:7.6%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;}
+.ph-plan .ter-fill{stroke-width:11;stroke-dasharray:22 12;animation:phdash2 1.4s linear infinite;}
+@keyframes phdash2{to{stroke-dashoffset:-34;}}
+@media(max-width:900px){
+  .ph-plan .flag{padding:4px 5px;border-width:1.5px;border-radius:7px;}
+  .ph-plan .flag small{font-size:8px;}
+  .ph-plan .flag b{font-size:11px;}
+  .ph-plan .ter-fill{stroke-width:12;}
+}
+
+/* ---------- v8 : 평당가 비교 막대 - 왼쪽 라벨 확대, 막대 길이 축소 ---------- */
+.ph-bar-row{grid-template-columns:250px minmax(0,500px);justify-content:start;gap:20px;}
+.ph-bar-row .lb{font-size:18px;font-weight:900;color:var(--navy);line-height:1.35;letter-spacing:-.5px;}
+.ph-bar-row .lb .lb-sub{display:block;margin-top:3px;font-size:13px;font-weight:500;color:#8a949e;letter-spacing:0;}
+.ph-bar{height:42px;}
+@media(max-width:900px){
+  .ph-bar-row{grid-template-columns:1fr;gap:8px;}
+  .ph-bar-row .lb{font-size:16.5px;}
+}
