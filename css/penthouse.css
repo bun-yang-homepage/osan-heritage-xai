@@ -394,3 +394,23 @@
 /* 벤츠 섹션 카드 - 사진 비율 유지 + 여백 */
 .ph-car{padding:30px 22px 20px;}
 .ph-car img{aspect-ratio:967/332;object-fit:contain;object-position:center;}
+
+/* ---------- v5 : GIFT 02 옵션 6칸 + 하단 문구 확대 ---------- */
+.ph-gopts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-items:stretch;justify-content:stretch;}
+.ph-gopts .o{gap:3px;padding:10px 4px;}
+.ph-gopts .o svg{width:26px;height:26px;}
+.ph-gopts .o span{font-size:12.5px;}
+.ph-gopts .o em{display:block;font-style:normal;font-size:10.5px;font-weight:700;color:#9a6f1d;letter-spacing:-.3px;}
+.ph-gopts .o.more{background:linear-gradient(160deg,#8a3320,#5c2415);border-color:#5c2415;box-shadow:0 6px 14px rgba(92,36,21,.35);}
+.ph-gopts .o.more small{font-size:12px;font-weight:700;color:#ffd98a;letter-spacing:.5px;}
+.ph-gopts .o.more b{font-size:28px;font-weight:900;line-height:1.05;color:#fff;letter-spacing:-1px;}
+.ph-gopts .o.more span{font-size:11.5px;font-weight:700;color:#ffd98a;}
+.ph-gfoot .nm{font-size:17px;}
+.ph-gfoot .nm em{font-style:normal;font-size:19px;font-weight:900;color:#c0392b;letter-spacing:-.6px;}
+@media(max-width:1100px){.ph-gfoot .nm{font-size:15px;}.ph-gfoot .nm em{font-size:17px;}}
+@media(max-width:900px){
+  .ph-gfoot .nm{font-size:14.5px;white-space:normal;line-height:1.3;}
+  .ph-gfoot .nm em{font-size:17px;display:block;}
+  .ph-gopts .o span{font-size:12px;}
+  .ph-gopts .o.more b{font-size:24px;}
+}
