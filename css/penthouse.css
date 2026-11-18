@@ -333,28 +333,7 @@
 .ph-hero .ph-stat i{display:block;font-style:normal;font-size:11.5px;color:var(--ph-gold);margin-top:2px;}
 .ph-hero .ph-hero-cta{margin-top:28px;}
 
-.ph-gcar{position:relative;border-radius:24px;padding:20px 22px 18px;background:linear-gradient(160deg,#fffdf8 0%,#f3e8d0 100%);border:2px solid #e2bf7c;box-shadow:0 0 0 7px rgba(217,178,106,.16),0 28px 56px rgba(0,0,0,.5);}
-.ph-gtop{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
-.ph-gtag{background:linear-gradient(180deg,#e74c3c,#b8281b);color:#fff;font-size:11.5px;font-weight:900;letter-spacing:1.5px;padding:6px 12px;border-radius:999px;box-shadow:0 3px 8px rgba(184,40,27,.4);}
-.ph-gtop b{font-size:22px;font-weight:900;color:var(--navy);letter-spacing:-.9px;}
-.ph-gtop b em{font-style:normal;color:#c0392b;}
-.ph-gimg{margin:6px 0 2px;}
-.ph-gimg img{width:100%;aspect-ratio:967/332;object-fit:cover;mix-blend-mode:multiply;cursor:default;filter:drop-shadow(0 12px 14px rgba(40,30,10,.25));}
-.ph-gfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:12px;border-top:1px dashed rgba(92,36,21,.28);}
-.ph-gfoot .nm{font-size:16px;font-weight:900;color:var(--navy);letter-spacing:-.4px;}
-.ph-gfoot .nm small{font-size:12px;font-weight:700;color:#8a949e;margin-left:4px;}
-.ph-gfoot .pr{background:var(--navy);color:#f1d28f;font-weight:900;font-size:14px;padding:8px 16px;border-radius:999px;letter-spacing:-.3px;}
 
-.ph-gopt{position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;margin:16px 14px 0;padding:18px 22px;border-radius:18px;background:linear-gradient(100deg,#5c2415 0%,#8a3320 100%);border:2px solid #ffd98a;box-shadow:0 14px 30px rgba(0,0,0,.45);}
-.ph-gopt::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-18deg);animation:phshine 3.6s ease-in-out infinite;}
-@keyframes phshine{0%{left:-40%;}55%,100%{left:130%;}}
-.ph-gopt .ic{flex:none;width:52px;height:52px;border-radius:50%;background:linear-gradient(180deg,#f0d392,#d9b26a);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.3);}
-.ph-gopt .ic svg{width:28px;height:28px;stroke:#5c2415;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.ph-gopt .tx{flex:1;min-width:0;color:#fff;}
-.ph-gopt .tx small{display:block;font-size:11.5px;font-weight:700;letter-spacing:1.5px;color:#ffd98a;}
-.ph-gopt .tx b{display:block;margin-top:3px;font-size:22px;font-weight:900;letter-spacing:-.8px;white-space:nowrap;}
-.ph-gopt .tx b em{font-style:normal;color:#ffd98a;}
-.ph-gopt .free{flex:none;background:#ffd98a;color:#5c2415;font-size:13px;font-weight:900;letter-spacing:1px;padding:6px 12px;border-radius:8px;transform:rotate(4deg);}
 
 /* ---------- 테라스 서비스 면적 강조 ---------- */
 .ph-head h2 em{position:relative;}
@@ -367,8 +346,6 @@
   .ph-point h3 small{font-size:11px;}
   .ph-hero h1{font-size:40px;}
   .ph-hero-in{column-gap:30px;}
-  .ph-gtop b{font-size:19px;}
-  .ph-gopt .tx b{font-size:19px;}
 }
 @media(max-width:900px){
   .ph-points{grid-template-columns:1fr;gap:14px;}
@@ -380,14 +357,47 @@
   .ph-hero .ph-lead{font-size:15px;}
   .ph-hero .ph-stats{grid-template-columns:repeat(2,1fr);margin-top:0;}
   .ph-hero .ph-stat b{font-size:20px;}
-  .ph-gcar{padding:16px 14px 14px;border-radius:20px;}
-  .ph-gtop b{font-size:19px;}
-  .ph-gfoot .nm{font-size:14.5px;}
-  .ph-gfoot .pr{font-size:13px;padding:7px 13px;}
-  .ph-gopt{margin:14px 6px 0;padding:14px 14px;gap:12px;}
-  .ph-gopt .ic{width:44px;height:44px;}
-  .ph-gopt .ic svg{width:24px;height:24px;}
-  .ph-gopt .tx b{font-size:17.5px;}
-  .ph-gopt .free{font-size:11px;padding:5px 9px;}
   .ph-head h2 .ph-sub-s{display:block;margin:6px 0 0;}
 }
+
+/* ---------- v4 : 히어로 선물 카드 2장 통일 양식 + 면적 카드 정렬 ---------- */
+.ph-gifts{display:grid;grid-auto-rows:1fr;gap:16px;}
+.ph-gcard{display:flex;flex-direction:column;border-radius:22px;padding:18px 22px 16px;background:linear-gradient(160deg,#fffdf8 0%,#f3e8d0 100%);border:2px solid #e2bf7c;box-shadow:0 0 0 6px rgba(217,178,106,.14),0 22px 46px rgba(0,0,0,.45);}
+.ph-ghead{display:flex;align-items:center;gap:12px;}
+.ph-gtag{flex:none;background:linear-gradient(180deg,#e74c3c,#b8281b);color:#fff;font-size:11.5px;font-weight:900;letter-spacing:1.5px;padding:6px 12px;border-radius:999px;box-shadow:0 3px 8px rgba(184,40,27,.4);}
+.ph-ghead b{font-size:21px;font-weight:900;color:var(--navy);letter-spacing:-.9px;white-space:nowrap;}
+.ph-ghead b em{font-style:normal;color:#c0392b;}
+.ph-gbody{flex:1;display:flex;align-items:center;justify-content:center;margin:8px 0 6px;}
+.ph-gbody img{width:100%;aspect-ratio:967/332;object-fit:cover;mix-blend-mode:multiply;cursor:default;filter:drop-shadow(0 12px 14px rgba(40,30,10,.25));}
+.ph-gopts{gap:10px;align-items:stretch;}
+.ph-gopts .o{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 6px;border-radius:14px;background:rgba(255,255,255,.62);border:1px solid rgba(92,36,21,.16);text-align:center;}
+.ph-gopts .o svg{width:34px;height:34px;stroke:#8a3320;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.ph-gopts .o span{font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.3;letter-spacing:-.3px;}
+.ph-gfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px;border-top:1px dashed rgba(92,36,21,.28);}
+.ph-gfoot .nm{font-size:16px;font-weight:900;color:var(--navy);letter-spacing:-.4px;white-space:nowrap;}
+.ph-gfoot .nm small{font-size:12px;font-weight:700;color:#8a949e;margin-left:4px;}
+.ph-gfoot .pr{flex:none;background:var(--navy);color:#f1d28f;font-weight:900;font-size:14px;padding:8px 16px;border-radius:999px;letter-spacing:-.3px;}
+
+.ph-hero .ph-stats{grid-template-columns:1fr 1.05fr .85fr 1.35fr;}
+.ph-hero .ph-stat{display:flex;flex-direction:column;}
+.ph-hero .ph-stat small{white-space:nowrap;letter-spacing:-.4px;min-height:0;margin-bottom:6px;}
+.ph-hero .ph-stat b{line-height:1.2;}
+
+@media(max-width:1100px){
+  .ph-ghead b{font-size:18px;}
+  .ph-gfoot .nm{font-size:14.5px;}
+}
+@media(max-width:900px){
+  .ph-gifts{grid-auto-rows:auto;}
+  .ph-gcard{padding:16px 14px 14px;border-radius:20px;}
+  .ph-ghead{gap:10px;}
+  .ph-ghead b{font-size:18px;}
+  .ph-gfoot .nm{font-size:14px;}
+  .ph-gfoot .nm small{display:none;}
+  .ph-gfoot .pr{font-size:13px;padding:7px 13px;}
+  .ph-hero .ph-stats{grid-template-columns:repeat(2,1fr);}
+}
+
+/* 벤츠 섹션 카드 - 사진 비율 유지 + 여백 */
+.ph-car{padding:30px 22px 20px;}
+.ph-car img{aspect-ratio:967/332;object-fit:contain;object-position:center;}
