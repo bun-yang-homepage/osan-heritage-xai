@@ -511,3 +511,9 @@
   .ph-ogrid.nine .oc:last-child{grid-column:1 / -1;}
   .ph-ogrid.nine .oc:nth-child(5){grid-column:auto;}
 }
+
+/* ---------- v11 : 기본 제공품목 헤더 문구 ---------- */
+.ph-opt .tt{display:flex;align-items:center;justify-content:space-between;gap:6px 20px;flex-wrap:wrap;}
+.ph-opt .tt .msg{font-size:15.5px;font-weight:900;letter-spacing:-.5px;color:#fff;}
+.ph-opt .tt .msg em{font-style:normal;color:#ffd98a;}
+@media(max-width:900px){.ph-opt .tt .msg{font-size:14px;line-height:1.45;}}
