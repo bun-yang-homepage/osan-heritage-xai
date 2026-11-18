@@ -548,3 +548,19 @@
 }
 .ph-hero .ph-hero-left .ph-stat{justify-content:flex-start;padding-top:20px;}
 @media(max-width:900px){.ph-hero .ph-hero-left .ph-stat{padding-top:16px;}}
+
+/* ---------- v15 : 면적 박스 4개 한 줄, 가로폭 완전 동일 ---------- */
+.ph-hero .ph-hero-left .ph-stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;}
+.ph-hero .ph-hero-left .ph-stat{padding:16px 12px;min-width:0;}
+.ph-hero .ph-hero-left .ph-stat small{font-size:12px;white-space:nowrap;letter-spacing:-.4px;}
+.ph-hero .ph-hero-left .ph-stat b{font-size:22px;white-space:nowrap;}
+.ph-hero .ph-hero-left .ph-stat b span{font-size:12px;}
+@media(max-width:1100px){
+  .ph-hero .ph-hero-left .ph-stat{padding:14px 10px;}
+  .ph-hero .ph-hero-left .ph-stat b{font-size:19px;}
+}
+@media(max-width:900px){
+  .ph-hero .ph-hero-left .ph-stats{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ph-hero .ph-hero-left .ph-stat{padding:16px 14px;}
+  .ph-hero .ph-hero-left .ph-stat b{font-size:21px;}
+}
